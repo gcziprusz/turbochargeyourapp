@@ -134,7 +134,33 @@ module.exports = function(grunt) {
 			options: {
 				livereload: true
 			}
-		}
+		},
+
+		jade: {
+			compile: {
+				options: {
+					pretty: true
+				},
+				files: [{
+					cwd   : 'src',
+					src   : '**/*.jade',
+					dest  : '',
+					expand: true,
+					ext   : '.html'
+				}]
+			}
+		},
+
+		watch: {
+			options: {
+				interrupt : false
+			},
+			jade: {
+				files: ['src/**/*.jade', '**/*.scss'],
+				tasks: ['build_jade']
+			}
+			
+		},
 
 	});
 
@@ -145,12 +171,15 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-sass' );
+	grunt.loadNpmTasks( 'grunt-contrib-jade');
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-autoprefixer' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'css', 'js' ] );
+	grunt.registerTask( 'default', [ 'jade' ] );
+
+	grunt.registerTask( 'build_jade', [ 'css', 'jade' ] );
 
 	// JS task
 	grunt.registerTask( 'js', [ 'jshint', 'uglify', 'qunit' ] );

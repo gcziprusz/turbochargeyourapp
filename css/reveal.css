@@ -1143,7 +1143,6 @@ body {
 .reveal .overlay .viewport {
   position: absolute;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   top: 40px;
@@ -1323,3 +1322,9 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+.wm_yellow {
+  color: #FAB815 !important; }
+
+.wm_blue {
+  color: #007DC6 !important; }

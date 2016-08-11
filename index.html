@@ -1,50 +1,295 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>reveal.js</title>
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
-
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
-</html>
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Turbo-charge your Web application</title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+  <!-- Theme used for syntax highlighting of code-->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Printing and PDF exports-->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1 class="wm_yellow">Turbo-charge your Web application</h1>
+      <p>12 Aug 2016</p>
+    </section>
+    <section>
+      <p>Gabriel Cziprusz </p>
+      <p><span class="wm_yellow">@</span><span class="wm_blue">Walmart</span><span class="wm_yellow">Labs</span></p>
+      <p><img src="torbit.png" style="background: none; border: 0; width: 35%;"></p>
+      <p>@gcziprusz</p>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Website performance is important !</h1>
+      <p class="fragment">You may be thinking:</p>
+      <p class="fragment">this is old news</p>
+      <p class="fragment">We have been hearing that for years</p>
+    </section>
+    <section>
+      <h2 class="wm_yellow">Forrester research shows that 47% of users expect pages to load in two seconds or less.</h2>
+    </section>
+    <section><img src="wm.png" style="background: none; border: 0; width: 120%;"></section>
+    <section> 
+      <h1 class="wm_yellow">frustrated users will likely seek alternatives</h1>
+      <h2 class="fragment">⌘ + T </h2>
+    </section>
+    <section> 
+      <h1><span class="wm_yellow">SEO&nbsp;</span>ranking is affected by page load speed </h1>
+    </section>
+    <section> 
+      <h2 class="wm_yellow"> Speed = competitive advantage</h2>
+    </section>
+    <section>
+      <h1 class="wm_yellow">So....  </h1>
+      <h2>why is this content relevant ?</h2>
+    </section>
+    <section>
+      <h2>#1</h2>
+      <h3>We all know that it's important, yet experience frustrating performance on the web every day</h3>
+      <h2>#2</h2>
+      <h3>Our performance best practices need to be periodically re-examined </h3>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">the invisible problem </h1>
+      <h2 class="fragment">Visit our site's from the office fastest Internet</h2>
+      <h2 class="fragment">have to look for it</h2>
+      <h2 class="fragment">it's everyone problem</h2>
+    </section>
+    <section>
+      <h1 class="wm_yellow">What is fast?</h1>
+    </section>
+    <section>Historically onload (AKA browser loader stops spinning)<img src="timing_overview.png"></section>
+    <section>
+      <h2>Onload is easy to measure but not the whole story</h2>
+      <h2 class="fragment">Depends on the goals of the application</h2>
+    </section>
+    <section> 
+      <h2>Twitter's <span class="wm_yellow">Time to first tweet</span></h2>
+    </section>
+    <section>  
+      <h1>GMAIL</h1><img src="https://www.darklaunch.com/img/uploads/2012-12/gmail-loading-progress-bar.png">
+    </section>
+    <section>
+      <h2>measure performance</h2>
+      <h2 class="wm_yellow">& establish a baseline</h2>
+    </section>
+    <section>
+      <h2>make and keep the site fast!</h2>
+    </section>
+    <section> 
+      <h2 class="wm_yellow">Synthetic Measurement</h2>
+      <h2>&</h2>
+      <h2 class="wm_yellow">Real User Monitoring (RUM)</h2>
+    </section>
+    <section> 
+      <h2>webpagetest.org</h2>
+      <h2 class="fragment">build integration</h2>
+      <h2 class="fragment">page speed index</h2>
+      <h2 class="fragment">performance budget </h2>
+      <h2 class="fragment">ratcheting</h2>
+    </section>
+    <section> 
+      <h2 class="wm_yellow">Synthetic Measurement cons</h2>
+      <h2 class="fragment">real world performance depends on many other factors</h2>
+      <h2 class="fragment wm_yellow">geographic diversity, browsers, cache state</h2>
+    </section>
+    <section>Real User Monitoring (RUM)
+      <h2 class="fragment">browsers navigation API</h2>
+      <h2 class="fragment wm_yellow">dashboard to show trends</h2>
+      <h2 class="fragment">The real win if you can tie it with business metrics</h2>
+      <!-- then you can have a convo about the 2MB rotation carousel on the home page and its effect on load and $$$-->
+      <h2 class="fragment wm_yellow">valuable only if people care about them</h2>
+    </section>
+    <section>
+      <h1 class="wm_yellow">Build a performance culture</h1>
+      <h2>Publish communication about performance wins</h2>
+      <h2>Use site load video comparisons</h2>
+    </section>
+    <section></section>
+    <section data-background-video="video.mp4" data-background-color="#000000"></section>
+    <!--https://www.webpagetest.org/video/view.php?id=160806_62e74951f52924b26c86912d7719c3d51baf8d55&embed=1&width=904&height=416-->
+    <section>
+      <h2>#2 
+        <h3>Our performance best practices need to be periodically re-examined</h3>
+      </h2>
+    </section>
+    <!--CHANGING CONTEXT - HTTP 2 SECTION-->
+    <section> 
+      <h1 class="wm_yellow">SPDY > HTTP/2</h1><img src="layer.png">
+    </section>
+    <section> 
+      <h1 class="wm_yellow">latency vs bandwidth</h1>
+    </section>
+    <section> <img src="latency_bandwith.png">
+      <p>ref. Ilya Grigorik, Yesterday's perf best-practices are today's HTTP/2 anti-patterns - Velocity 2015</p>
+    </section>
+    <section> 
+      <h2>Latency matters more than bandwidth</h2>
+      <h2 class="wm_yellow">Can't make bit travel faster</h2>
+    </section>
+    <!--regardless what your ISP wants you to believe for web browsing it is-->
+    <!-- streaming or online gaming may be a different story-->
+    <section> 
+      <h1 class="wm_yellow">Evergreen Optimizations</h1>
+      <ul class="fragment">
+        <li>Eliminate round-trips</li>
+        <li>Make the distance shorter</li>
+        <li>Reduce the number of bits shipped over the wire...</li>
+      </ul>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">What optimization to start with?</h1>
+      <h2>It depends </h2>
+      <h2 class="fragment">in general 80% FE / 20% BE</h2>
+      <h2 class="fragment">images > 50% FE of weight</h2>
+    </section>
+    <section> <img src="size_per_type.png"></section>
+    <section> 
+      <h1 class="wm_yellow">IMAGE optimizations</h1>
+      <h2 class="fragment">Vector vs Raster</h2>
+      <h2 class="fragment">Lossless vs Lossy</h2>
+      <h2 class="fragment">Indexed vs Direct</h2>
+      <h2 class="fragment">PNG-8 (ll&i), PNG-24 (ll&d), webp (ll&l&d), gif (ll&i), jpeg (l&d)</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">responsive images </h1>
+      <h2>deliver the best quality usable by the device, but nothing more</h2><img src="imgpicture.png">
+    </section>
+    <section>
+      <h1>image metadata</h1>
+    </section>
+    <section>
+      <h1>web-fonts</h1><img src="fonts.png">
+    </section>
+    <section> 
+      <h2>subset + compress</h2>
+    </section>
+    <section>
+      <h1 class="wm_yellow">CDNs</h1>
+      <h2>pops all over the (world)</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">CDNs</h1>
+      <h2>CAN YOU HTTP2 without SSL ... theoretically yes practically NO</h2>
+      <h2>HTTPS HTTP2 even better can terminate SSL session </h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">caching </h1>
+      <h2>the fastest request is the one you do not have to make</h2>
+      <h2 class="wm_yellow">HTTP standard</h2>
+    </section>
+    <section><img src="cache.png" style="max-width: 70%;"></section>
+    <section> 
+      <h1 class="wm_yellow">forever cache + version-ed assets</h1>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Domain Sharding</h1>
+      <h2>3 concepts + HTTP1.1 vs HTTP2</h2>
+      <ul>
+        <li>DNS lookups</li>
+        <li>HTTP 1.1 Keep-Alive </li>
+        <li>​active connections/domain</li>
+      </ul>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Bundling</h1>
+      <h2>150 JS source files </h2>
+      <h2>costly cache invalidations</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Bundling</h1>
+      <h2>gmail bundle invalidation causes DoS </h2>
+      <h2>pre-warming cache</h2>
+      <h2>do only a few bundles</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Minification</h1>
+      <h2>human readable format V8 does not care</h2>
+      <h2>long var names function names</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Inlining</h1>
+      <h2>breaks caching</h2>
+      <h2>base 64 encoded image ++ 30%</h2>
+      <h2>HTTP/2 > server push</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">compression </h1>
+      <h2>GZIP , deflate</h2>
+      <h2>what to GZIP </h2>
+      <h2>anti-virus virus corner-case</h2>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Flushing the Document Early</h1><img src="no_flush.png"><img src="flush.png">
+    </section>
+    <section>
+      <h1 class="wm_yellow">Flushing the Document Early</h1>
+      <h2>Transfer-Encoding: chunked</h2>
+    </section>
+    <section>Put <span class="wm_yellow">CSS </span>at the top ... to support progressive rendering<img src="browser_processing_timeline.png">
+      <ul>
+        <li> <span class="wm_yellow">avoid: </span>expressions, universal rules <span class="wm_yellow">* {…} , </span><span class="wm_yellow">@import </span></li>
+        <li>uncss + minify + cssstats.com</li>
+      </ul>
+    </section>
+    <section> <img src="automate-all-the-things.jpg"></section>
+    <section>
+      <h1 class="wm_yellow">On the horizon</h1>
+    </section>
+    <section>
+      <h1 class="wm_yellow">QUIC</h1>
+      <h3><a href="https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin">Chrome extension HTTP/2 and SPDY indicator </a></h3>
+      <div> 
+        <h4>chrome://flags/#enable-quic</h4><img src="quic.png">
+      </div>
+    </section>
+    <section>
+      <h1 class="wm_yellow">Service Workers</h1>
+      <ul>
+        <li>use fastest CDN race</li>
+        <li>prioritize resources</li>
+        <li>delta compression</li>
+        <li>drawing images locally</li>
+      </ul>
+    </section>
+    <section> 
+      <h1 class="wm_yellow">Measure your performance!</h1>
+    </section>
+    <section>WHO TO FOLLOW
+      <h2>Ilya Grigorik</h2>
+      <h2>Tim Kadlec</h2>
+      <h2>Steve Saunders</h2>
+      <h2>Matt Wilcox</h2>
+    </section>
+    <section> 
+      <h2>Questions ?</h2>
+    </section>
+    <section>
+      <h2><a href="ref.txt">references (.txt)</a></h2>
+    </section>
+  </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+  history: true,
+  // More info https://github.com/hakimel/reveal.js#dependencies
+  dependencies: [
+  { src: 'plugin/markdown/marked.js' },
+  { src: 'plugin/markdown/markdown.js' },
+  { src: 'plugin/notes/notes.js', async: true },
+  { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ]
+  });
+</script>

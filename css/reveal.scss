@@ -1400,3 +1400,13 @@ body {
 .zoomed .reveal .roll span:after {
 	visibility: hidden;
 }
+
+.wm_ {
+	&yellow {
+		color: #FAB815!important;
+	}
+	&blue {
+		color: #007DC6!important;
+	}
+}
+

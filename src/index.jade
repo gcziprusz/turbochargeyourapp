@@ -1,0 +1,347 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+  title Turbo-charge your Web application
+  link(rel='stylesheet', href='css/reveal.css')
+  link(rel='stylesheet', href='css/theme/black.css')
+  // Theme used for syntax highlighting of code
+  link(rel='stylesheet', href='lib/css/zenburn.css')
+  // Printing and PDF exports
+  script.
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+.reveal
+  .slides
+   
+    section
+      h1.wm_yellow Turbo-charge your Web application
+      //- h3 Identify and employ optimization strategies to speed up web page performance
+      p 12 Aug 2016
+   
+    section
+      p Gabriel Cziprusz 
+      p
+        span.wm_yellow @
+        span.wm_blue Walmart
+        span.wm_yellow Labs
+      p
+        img(src='torbit.png', style='background: none; border: 0; width: 35%;')
+      p @gcziprusz
+
+    section 
+      h1.wm_yellow Website performance is important !
+      p.fragment You may be thinking:
+      p.fragment this is old news
+      p.fragment We have been hearing that for years
+
+    section
+      h2.wm_yellow Forrester research shows that 47% of users expect pages to load in two seconds or less.
+    
+    section
+      img(src='wm.png',style='background: none; border: 0; width: 120%;')
+
+    section 
+      h1.wm_yellow frustrated users will likely seek alternatives
+      h2.fragment ⌘ + T 
+    
+    section 
+      h1
+        span.wm_yellow SEO&nbsp;
+        | ranking is affected by page load speed 
+    
+    section 
+      h2.wm_yellow  Speed = competitive advantage
+
+    section
+      h1.wm_yellow So....  
+      h2 why is this content relevant ?
+
+    section
+      h2 #1
+      h3 We all know that it's important, yet experience frustrating performance on the web every day
+      
+      h2 #2
+      h3 Our performance best practices need to be periodically re-examined 
+
+    section 
+      h1.wm_yellow the invisible problem 
+      h2.fragment Visit our site's from the office fastest Internet
+      h2.fragment have to look for it
+      h2.fragment it's everyone problem
+
+    section
+      h1.wm_yellow What is fast?
+    
+    section Historically onload (AKA browser loader stops spinning)
+      img(src='timing_overview.png')
+
+    section
+      h2 Onload is easy to measure but not the whole story
+      h2.fragment Depends on the goals of the application
+
+    section 
+      h2 Twitter's 
+        span.wm_yellow Time to first tweet
+    section   
+      h1 GMAIL
+      img(src='https://www.darklaunch.com/img/uploads/2012-12/gmail-loading-progress-bar.png')
+
+    section
+     h2 measure performance
+     h2.wm_yellow & establish a baseline
+     
+    section
+      h2 make and keep the site fast!
+    
+    section 
+      h2.wm_yellow Synthetic Measurement
+      h2 &
+      h2.wm_yellow Real User Monitoring (RUM)
+    
+    section 
+      h2 webpagetest.org
+      h2.fragment build integration
+      h2.fragment page speed index
+      h2.fragment performance budget 
+      h2.fragment ratcheting
+      
+    section 
+      h2.wm_yellow Synthetic Measurement cons
+      h2.fragment real world performance depends on many other factors
+      h2.fragment.wm_yellow geographic diversity, browsers, cache state
+    
+    section Real User Monitoring (RUM)
+      h2.fragment browsers navigation API
+      h2.fragment.wm_yellow dashboard to show trends
+      h2.fragment The real win if you can tie it with business metrics
+      // then you can have a convo about the 2MB rotation carousel on the home page and its effect on load and $$$
+      h2.fragment.wm_yellow valuable only if people care about them
+     
+    section
+      h1.wm_yellow Build a performance culture
+      h2 Publish communication about performance wins
+      h2 Use site load video comparisons
+    section
+    
+    section(data-background-video='video.mp4', data-background-color='#000000')
+    //https://www.webpagetest.org/video/view.php?id=160806_62e74951f52924b26c86912d7719c3d51baf8d55&embed=1&width=904&height=416
+    
+    section
+      h2 #2 
+        h3 Our performance best practices need to be periodically re-examined
+    
+
+
+
+
+
+
+
+    //CHANGING CONTEXT - HTTP 2 SECTION
+    section 
+      h1.wm_yellow SPDY > HTTP/2
+      img(src='layer.png')
+    
+    section 
+      h1.wm_yellow latency vs bandwidth
+
+    section 
+      img(src='latency_bandwith.png') 
+      p ref. Ilya Grigorik, Yesterday's perf best-practices are today's HTTP/2 anti-patterns - Velocity 2015
+    
+    section 
+        h2 Latency matters more than bandwidth
+        h2.wm_yellow Can't make bit travel faster
+    //regardless what your ISP wants you to believe for web browsing it is
+    // streaming or online gaming may be a different story
+
+    //- section
+    //-   img(src='load_time.png')
+    
+    //- section
+    //-   img(src='speedindex.png')
+    
+    section 
+      h1.wm_yellow Evergreen Optimizations
+      ul.fragment
+        li Eliminate round-trips
+        li Make the distance shorter
+        li Reduce the number of bits shipped over the wire...
+
+    //- section page weight
+    //-   h2 matters can still deliver a usable site on a heavy page
+    //-   h2 can be done ...what to keep in mind
+    //-   h2 data is $$$ how much my site cost whatdoesmysitecost.com
+    
+    section 
+      h1.wm_yellow What optimization to start with?
+      h2 It depends 
+      h2.fragment in general 80% FE / 20% BE
+      h2.fragment images > 50% FE of weight
+    
+    section 
+      img(src='size_per_type.png')
+    
+    section 
+      h1.wm_yellow IMAGE optimizations
+      h2.fragment Vector vs Raster
+      h2.fragment Lossless vs Lossy
+      h2.fragment Indexed vs Direct
+      h2.fragment PNG-8 (ll&i), PNG-24 (ll&d), webp (ll&l&d), gif (ll&i), jpeg (l&d)
+    
+    section 
+      h1.wm_yellow responsive images 
+      h2 deliver the best quality usable by the device, but nothing more
+      img(src='imgpicture.png')
+
+    section
+      h1 image metadata
+      
+      //- funny rotation corner case
+
+    section
+      h1 web-fonts
+      img(src='fonts.png')
+    
+    section 
+      h2 subset + compress
+
+    section
+      h1.wm_yellow CDNs
+      h2 pops all over the (world)
+      //- img(src='ak_pops.png')
+    
+    section 
+      h1.wm_yellow CDNs
+      h2 CAN YOU HTTP2 without SSL ... theoretically yes practically NO
+      h2 HTTPS HTTP2 even better can terminate SSL session 
+
+    section 
+      h1.wm_yellow caching 
+      h2 the fastest request is the one you do not have to make
+      h2.wm_yellow HTTP standard
+      //- h2 use headers to specify where, how long to cache + determine what is stale
+
+    section
+      img(src='cache.png', style='max-width: 70%;')
+    
+    section 
+      h1.wm_yellow forever cache + version-ed assets
+
+    section 
+      h1.wm_yellow Domain Sharding
+      h2 3 concepts + HTTP1.1 vs HTTP2
+      ul
+        li DNS lookups
+        li HTTP 1.1 Keep-Alive 
+        li ​active connections/domain
+   
+    //- section 
+      h1.wm_yellow domain Sharding
+      img(src='shard.png')
+    
+    section 
+      h1.wm_yellow Bundling
+      h2 150 JS source files 
+      h2 costly cache invalidations
+    
+    section 
+      h1.wm_yellow Bundling
+      h2 gmail bundle invalidation causes DoS 
+      h2 pre-warming cache
+      h2 do only a few bundles
+
+    section 
+      h1.wm_yellow Minification
+      h2 human readable format V8 does not care
+      h2 long var names function names
+
+    section 
+      h1.wm_yellow Inlining
+      h2 breaks caching
+      h2 base 64 encoded image ++ 30%
+      h2 HTTP/2 > server push
+
+    section 
+      h1.wm_yellow compression 
+      h2 GZIP , deflate
+      h2 what to GZIP 
+      h2 anti-virus virus corner-case
+
+    section 
+      h1.wm_yellow Flushing the Document Early
+      img(src='no_flush.png')
+      img(src='flush.png')
+      
+    section
+      h1.wm_yellow Flushing the Document Early
+      h2 Transfer-Encoding: chunked
+      //- h2 chunked encoding
+
+    section
+      | Put 
+      span.wm_yellow CSS 
+      | at the top ... to support progressive rendering
+      img(src='browser_processing_timeline.png')
+      ul
+        li 
+          span.wm_yellow avoid: 
+          | expressions, universal rules 
+          span.wm_yellow * {…} , 
+          span.wm_yellow @import 
+        li uncss + minify + cssstats.com
+    section 
+      img(src='automate-all-the-things.jpg')
+    section
+      h1.wm_yellow On the horizon
+
+    section
+      h1.wm_yellow QUIC
+      h3
+        a(href='https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin') Chrome extension HTTP/2 and SPDY indicator 
+      div 
+        h4 chrome://flags/#enable-quic
+        img(src='quic.png')
+    
+    section
+      h1.wm_yellow Service Workers
+      ul
+        li use fastest CDN race
+        li prioritize resources
+        li delta compression
+        li drawing images locally
+
+    section 
+      h1.wm_yellow Measure your performance!
+    
+    section WHO TO FOLLOW
+      h2 Ilya Grigorik
+      h2 Tim Kadlec
+      h2 Steve Saunders
+      h2 Matt Wilcox
+
+    section 
+      h2 Questions ?
+    
+    section
+      h2
+        a(href='ref.txt') references (.txt)
+
+script(src='lib/js/head.min.js')
+script(src='js/reveal.js')
+script.
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+  history: true,
+  // More info https://github.com/hakimel/reveal.js#dependencies
+  dependencies: [
+  { src: 'plugin/markdown/marked.js' },
+  { src: 'plugin/markdown/markdown.js' },
+  { src: 'plugin/notes/notes.js', async: true },
+  { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ]
+  });
